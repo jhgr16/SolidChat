@@ -1,0 +1,221 @@
+// Made by www.youtube.com/jhgr16
+{$CLEO .cs}
+wait 2500
+0000: de jorgito para el mundo FACEBOO.COM/JHGR16
+0@ = 0
+32@ = 3501
+31@ = 0
+33@ = 0
+8@ = 0
+if
+8AAB:   file_exists "cleo\schat.ini"                                     
+then                             
+0AF1: write_int 18 to_ini_file "cleo\schat.ini" section "configuracion" key "K1"
+0AF1: write_int 80 to_ini_file "cleo\schat.ini" section "configuracion" key "K2"
+0AF1: write_int 123 to_ini_file "cleo\schat.ini" section "configuracion" key "K3"
+0AF1: write_int 255 to_ini_file "cleo\schat.ini" section "configuracion" key "R"
+0AF1: write_int 255 to_ini_file "cleo\schat.ini" section "configuracion" key "G"
+0AF1: write_int 104 to_ini_file "cleo\schat.ini" section "configuracion" key "B"
+0AF1: write_int 255 to_ini_file "cleo\schat.ini" section "configuracion" key "O"
+0AF1: write_int 0 to_ini_file "cleo\schat.ini" section "configuracion" key "mode"
+0AF3: write_float 640.0 to_ini_file "cleo\schat.ini" section "configuracion" key "X"
+0AF3: write_float 316.0 to_ini_file "cleo\schat.ini" section "configuracion" key "Y"
+end                                                                                         
+0AF0: 1@ = get_int_from_ini_file "cleo\schat.ini" section "configuracion" key "R"
+0AF0: 2@ = get_int_from_ini_file "cleo\schat.ini" section "configuracion" key "G"
+0AF0: 3@ = get_int_from_ini_file "cleo\schat.ini" section "configuracion" key "B"
+0AF0: 4@ = get_int_from_ini_file "cleo\schat.ini" section "configuracion" key "O"
+0AF2: 5@ = get_float_from_ini_file "cleo\schat.ini" section "configuracion" key "X"
+0AF2: 6@ = get_float_from_ini_file "cleo\schat.ini" section "configuracion" key "Y"
+0AF0: 7@ = get_int_from_ini_file "cleo\schat.ini" section "configuracion" key "mode"
+0AF0: 9@ = get_int_from_ini_file "cleo\schat.ini" section "configuracion" key "K1"
+0AF0: 10@ = get_int_from_ini_file "cleo\schat.ini" section "configuracion" key "K2"
+0AF0: 11@ = get_int_from_ini_file "cleo\schat.ini" section "configuracion" key "K3"
+print "~y~Solidchat - ~b~~h~WaTTi" 6000
+WHILE TRUE
+WAIT 0     
+    
+    if 0ADC: "solidbug"
+    then
+        actor.LockInCurrentPosition($player_actor, 0)
+        33@ = 0
+        print "desbug, solidchat." 1000 
+        wait 10
+    end
+
+    if 0ADC: "SMODE"
+    then
+        if 7@ == 0
+        then 
+        print "~b~So~r~li~y~dc~g~ha~w~t: MODO ~g~~h~2." 3000
+        7@ = 1
+        else
+        print "~b~So~r~li~y~dc~g~ha~w~t: MODO ~r~~h~1." 3000
+        7@ = 0
+        end
+        0AF1: write_int 7@ to_ini_file "cleo\schat.ini" section "configuracion" key "mode"
+    end
+
+    if 33@ == 300
+    then
+    actor.LockInCurrentPosition($player_actor, 0)
+    end      
+    if or 
+    8@ == 1    
+    not 32@ >= 2600
+    then
+    038E: draw_box_position 0.0 0.0 size 5@ 6@ RGBA 1@ 2@ 3@ 4@
+    else 
+        if 12@ == 1
+        then                                                
+            0AF3: write_float 5@ to_ini_file "cleo\schat.ini" section "configuracion" key "X"
+            0AF3: write_float 6@ to_ini_file "cleo\schat.ini" section "configuracion" key "Y"
+            03F0: enable_text_draw 0
+            12@ = 0
+        end
+    end
+    
+    if and
+    key_down 10@ 
+    key_down 38  // arriba             
+    then 
+    actor.LockInCurrentPosition($player_actor, 1)
+    6@ += -1.0
+    03F0: enable_text_draw 1
+    32@ = 0
+    12@ = 1
+    33@ = 0
+    end
+    if and
+    key_down 10@
+    key_down 40 // abajo
+    then
+    6@ += 1.0
+    03F0: enable_text_draw 1
+    32@ = 0
+    12@ = 1
+    33@ = 0
+    actor.LockInCurrentPosition($player_actor, 1)
+    end
+    if and
+    key_down 10@
+    key_down 37
+    then
+    5@ += -1.0
+    03F0: enable_text_draw 1
+    32@ = 0
+    12@ = 1
+    33@ = 0
+    actor.LockInCurrentPosition($player_actor, 1)
+    end                                    
+    if and
+    key_down 10@
+    key_down 39
+    then
+    5@ += 1.0
+    03F0: enable_text_draw 1
+    32@ = 0
+    actor.LockInCurrentPosition($player_actor, 1)
+    12@ = 1
+    33@ = 0
+    end
+    
+    if and // personalizado 
+    key_down 10@
+    key_down 49 
+    then
+    0AF0: 1@ = get_int_from_ini_file "cleo\schat.ini" section "configuracion" key "R"
+    0AF0: 2@ = get_int_from_ini_file "cleo\schat.ini" section "configuracion" key "G"
+    0AF0: 3@ = get_int_from_ini_file "cleo\schat.ini" section "configuracion" key "B"
+    print "COLOR CUSTOM SOLIDCHAT" 1000
+    end
+    
+    if and // blanco
+    key_down 10@
+    key_down 50 
+    then   
+    1@ = 255
+    2@ = 255
+    3@ = 255
+    print "COLOR BLANCO SOLIDCHAT" 1000
+    end
+    
+    if and // azul
+    key_down 10@
+    key_down 51
+    then   
+    1@ = 51
+    2@ = 255
+    3@ = 255
+    print "COLOR AZUL SOLIDCHAT" 1000
+    end
+    
+    if and // rojo
+    key_down 10@
+    key_down 52
+    then   
+    1@ = 255
+    2@ = 51
+    3@ = 51
+    print "COLOR ROJO SOLIDCHAT" 1000
+    end
+    
+    if and // verde
+    key_down 10@
+    key_down 53
+    then   
+    1@ = 51
+    2@ = 255
+    3@ = 51
+    print "COLOR VERDE SOLIDCHAT" 1000
+    end
+    
+    if and // gris
+    key_down 10@
+    key_down 54
+    then   
+    1@ = 160
+    2@ = 160
+    3@ = 160
+    print "COLOR GRIS SOLIDCHAT" 1000
+    end
+    
+    // SAMP MODE 1
+    if and
+    7@ == 0
+    0AB0: 11@
+    then
+    03F0: enable_text_draw 1
+    038E: draw_box_position 0.0 0.0 size 5@ 6@ RGBA 1@ 2@ 3@ 4@
+    wait 10
+    0AB1: @TakeScreen 0
+    wait 10
+    03F0: enable_text_draw 0
+    end
+    
+    // SAMP MODE 2
+    if and
+    7@ == 1
+    0AB0: 9@
+    0AB0: 10@
+    then
+        if 8@ == 0
+        then 
+        8@ = 1
+        03F0: enable_text_draw 1
+        wait 300
+        else
+        8@ = 0
+        03F0: 0
+        wait 300
+        end
+    end
+END
+
+:TakeScreen
+IF 0AA2: 0@ = "samp.dll"
+THEN 
+0@ += 0x119CBC
+0A8C: writeMem 0@ sz 1 val 1 vp 0
+END
+RET 0
